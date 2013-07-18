@@ -3,10 +3,10 @@ var express=requre("express");
 
 var app=expess.createServer(express.logger());
 var filename ="index.html";
-var mybuffer = new Buffer(fs.readFileSync(filename,"utf8"));
+var buf = fs.readFileSync(filename);
 var mystring;
 
-mystring=mybuffer.toString();
+mystring=buf.toString();
 
 app.get('/', function(request, response) {
   response.send(mystring);
