@@ -1,15 +1,10 @@
-var fs = require("fs");
 var express=requre("express");
-
 var app=expess.createServer(express.logger());
-var filename ="index.html";
-var buf = fs.readFileSync(filename);
-var mystring;
-
-mystring=buf.toString();
 
 app.get('/', function(request, response) {
-  response.send(mystring);
+  var fs = require("fs");
+  var content =fs.ReadFileSync("index.html","utf-8");
+  response.send(content);
 });
 
 var port = process.env.PORT || 5000;
